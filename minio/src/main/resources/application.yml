@@ -1,0 +1,8 @@
+quarkus:
+  minio:
+    url: http://localhost:9000
+    secret-key: minioadmin
+    access-key: admin
+
+  http:
+    port: 8085

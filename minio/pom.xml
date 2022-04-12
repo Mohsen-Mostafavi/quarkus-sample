@@ -21,6 +21,19 @@
         <quarkus.platform.version>2.7.2.Final</quarkus.platform.version>
         <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>io.quarkiverse.minio</groupId>
+            <artifactId>quarkus-minio</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-multipart-provider</artifactId>
+            <version>4.7.1.Final</version>
+        </dependency>
+
+    </dependencies>
     <build>
         <plugins>
             <plugin>
