@@ -13,7 +13,7 @@ spec:
        app: qurkus-sample
    spec:
      containers:
-       - name: qurkus-sample-api
+       - name: quarkus-sample-api
          imagePullPolicy: Never
          image: qurkus-sample:v1
          ports:
