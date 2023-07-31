@@ -18,9 +18,15 @@ jobs:
       - self-hosted
     steps:
       - uses: actions/checkout@v3
-      - name: temp cmd
-        run: pwd
       - name: Build the Docker image
         run: docker build . --file .github/workflows/Dockerfile --tag quarkus-sample:$(date +%s)
+  deploy:
+    runs-on:
+      - self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Copy kuber config file
+        run: cp /root/.kube/config .
       - name: Deploy the image on Kuber Cluster
         run: kubectl apply -f .github/workflows/redis.yml
+      
