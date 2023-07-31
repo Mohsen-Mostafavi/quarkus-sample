@@ -10,7 +10,7 @@ RUN mvn dependency:go-offline -B
 COPY redis/src /build/src
 RUN mvn clean package -DskipTests
 
-Application image
+#Application image
 FROM ibmjava:8-jre
 WORKDIR /app
 # ARG ARTIFACT_VERSION
