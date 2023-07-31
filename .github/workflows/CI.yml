@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file .github/workflows/Dockerfile --tag quarkus-sample:$(date +%s)
+        run: docker build . --file .github/workflows/Dockerfile --tag quarkus-sample:v1
   deploy:
     runs-on:
       - self-hosted
