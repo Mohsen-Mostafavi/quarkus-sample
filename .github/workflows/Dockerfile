@@ -1,4 +1,4 @@
-FROM openjdk:17-alpine AS builder
+FROM maven:3.8.3-openjdk-17 AS builder
 #FROM maven:3.6.3-openjdk-8 AS builder
 WORKDIR /build
 # Copy only the pom.xml to leverage Docker cache, dependencies won't change as often as source code
