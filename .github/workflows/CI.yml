@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: temp cmd
-        run: ls
+        run: pwd
       - name: Build the Docker image
         run: docker build . --file .github/workflows/Dockerfile --tag redis-sample:$(date +%s)
       - name: Deploy the image on Kuber Cluster
