@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: redis
+ name: qurkus-sample
 spec:
  selector:
    matchLabels:
-     app: redis
+     app: qurkus-sample
  replicas: 2
  template:
    metadata:
      labels:
-       app: redis
+       app: qurkus-sample
    spec:
      containers:
-       - name: redis-api
+       - name: qurkus-sample-api
          imagePullPolicy: Never
-         image: redis-sample:latest
+         image: qurkus-sample:latest
          ports:
            - containerPort: 8082
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: redis
+ name: qurkus-sample
 spec:
  type: NodePort
  selector:
-   app: redis
+   app: qurkus-sample
  ports:
    - port: 8082
      targetPort: 8082
