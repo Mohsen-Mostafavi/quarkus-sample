@@ -21,6 +21,7 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file .github/workflows/Dockerfile --tag quarkus-sample:v1
   deploy:
+    needs: build
     runs-on:
       - self-hosted
     steps:
