@@ -11,7 +11,7 @@ COPY src /build/src
 RUN mvn clean package -DskipTests
 
 #Application image
-FROM openjdk17-jre-headless
+FROM azul/zulu-openjdk:17.0.0-jre-headless
 WORKDIR /app
 # ARG ARTIFACT_VERSION
 COPY --from=builder /build/target/quarkus-sample-1.0-SNAPSHOT.jar /app/final-artifact.jar
