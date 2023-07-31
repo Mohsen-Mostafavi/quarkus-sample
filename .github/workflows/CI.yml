@@ -25,6 +25,6 @@ jobs:
       - self-hosted
     steps:
       - name: Set config for K8s
-        run: kubectl config use-context /root/.kube/config
+        run: kubectl apply -f .github/workflows/redis.yml --kubeconfig=/root/.kube/config
       - name: Deploy on kuber
-        run: kubectl get pods
+        run: kubectl get pods --kubeconfig=/root/.kube/config
