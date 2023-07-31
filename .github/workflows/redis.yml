@@ -15,7 +15,7 @@ spec:
      containers:
        - name: quarkus-sample-api
          imagePullPolicy: Never
-         image: quarkus-sample:v1
+         image: quarkus-sample:v2
          ports:
            - containerPort: 8082
 ---
