@@ -2,12 +2,12 @@ FROM registry.access.redhat.com/ubi8/openjdk-11:1.11 AS builder
 #FROM maven:3.6.3-openjdk-8 AS builder
 WORKDIR /build
 # Copy only the pom.xml to leverage Docker cache, dependencies won't change as often as source code
-COPY redis/pom.xml .
+COPY pom.xml .
 # If there's settings.xml, copy to .m2 directory
 #COPY settings.xml /root/.m2/settings.xml
 RUN mvn dependency:go-offline -B
 # Copy the source code and build the application
-COPY redis/src /build/src
+COPY src /build/src
 RUN mvn clean package -DskipTests
 
 #Application image
