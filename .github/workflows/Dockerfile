@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/openjdk-11:1.11 AS builder
+FROM openjdk:17-alpine AS builder
 #FROM maven:3.6.3-openjdk-8 AS builder
 WORKDIR /build
 # Copy only the pom.xml to leverage Docker cache, dependencies won't change as often as source code
@@ -11,7 +11,7 @@ COPY src /build/src
 RUN mvn clean package -DskipTests
 
 #Application image
-FROM ibmjava:8-jre
+FROM openjdk17-jre-headless
 WORKDIR /app
 # ARG ARTIFACT_VERSION
 COPY --from=builder /build/target/quarkus-sample-1.0-SNAPSHOT.jar /app/final-artifact.jar
