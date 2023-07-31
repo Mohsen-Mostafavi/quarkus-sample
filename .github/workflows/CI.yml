@@ -18,6 +18,8 @@ jobs:
       - self-hosted
     steps:
       - uses: actions/checkout@v3
+      - name: set something
+        run: eval $(minikube -p minikube docker-env)
       - name: Build the Docker image
         run: docker build . --file .github/workflows/Dockerfile --tag quarkus-sample:v2
   deploy:
