@@ -27,6 +27,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions-hub/kubectl@master
         env:
-          KUBE_CONFIG: /root/.kube/config | base64
+          KUBE_CONFIG: /root/.kube/config
         with:
           args: apply -f .github/workflows/redis.yml
