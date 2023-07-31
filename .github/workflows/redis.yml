@@ -15,7 +15,7 @@ spec:
      containers:
        - name: qurkus-sample-api
          imagePullPolicy: Never
-         image: qurkus-sample:latest
+         image: qurkus-sample:v1
          ports:
            - containerPort: 8082
 ---
