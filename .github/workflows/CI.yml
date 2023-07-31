@@ -24,9 +24,7 @@ jobs:
     runs-on:
       - self-hosted
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: /root/.kube/config
-        with:
-          args: apply -f .github/workflows/redis.yml
+      - name: Set config for K8s
+        run: kubectl config use-context /root/.kube/config
+      - name: Deploy on kuber
+        run: kubectl get pods
