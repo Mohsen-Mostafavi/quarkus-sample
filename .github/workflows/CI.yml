@@ -19,6 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file ./redis/src/main/docker/Dockerfile.jvm --tag redis-sample:$(date +%s)
+        run: docker build . --file ./redis/src/main/docker/Dockerfile --tag redis-sample:$(date +%s)
       - name: Deploy the image on Kuber Cluster
         run: kubectl apply -f ./k8s/redis.yml
