@@ -24,11 +24,8 @@ jobs:
     runs-on:
       - self-hosted
     steps:
-      - uses: actions/checkout@v3
-      - name: test
-        run: whoami
-      - name: Copy kuber config file
-        run: cp /root/.kube/config .
-      - name: Deploy the image on Kuber Cluster
-        run: kubectl apply -f .github/workflows/redis.yml
-      
+      - uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: /root/.kube/config
+        with:
+          args: apply -f .github/workflows/redis.yml
