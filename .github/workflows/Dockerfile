@@ -14,7 +14,7 @@ RUN mvn clean package -DskipTests
 FROM maven:3.8.3-openjdk-17
 WORKDIR /app
 # ARG ARTIFACT_VERSION
-COPY --from=builder /build/target/quarkus-sample-1.0-SNAPSHOT.jar /app/final-artifact.jar
+COPY --from=builder /build/target/demo-1.0-SNAPSHOT.jar /app/final-artifact.jar
 # Set the timezone in a more standard way
 # ENV TZ='Tehran-3:30'
 # RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
